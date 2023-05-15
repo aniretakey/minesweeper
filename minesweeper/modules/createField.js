@@ -26,20 +26,28 @@ export function createField(width = 10, height = 10, bombs = 10) {
   addButtons(squaresCount);
 
   let arr = createArr();
-  const arrBombs = getRandomNumbers(arr);
+  let arrBombs;
 
   const field = document.getElementById('field');
 
-  // TODO
+  field.addEventListener(
+    'click',
+    (event) => {
+      function createBombs() {
+        arrBombs = getRandomNumbers(arr);
+        let clickedSquare = +event.target.classList[0];
 
-  // field.addEventListener(
-  //   'click',
-  //   (event) => {
-  //     arrBombs = getRandomNumbers(arr);
-  //     console.log(arrBombs);
-  //   },
-  //   { once: true }
-  // );
+        if (arrBombs.includes(clickedSquare)) {
+          createBombs();
+        } else {
+          return arrBombs;
+        }
+        console.log(arrBombs);
+      }
+      createBombs();
+    },
+    { once: true }
+  );
 
   field.addEventListener('click', (event) => {
     if (!event.target.classList.contains('square')) {
