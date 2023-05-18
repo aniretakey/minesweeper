@@ -22,7 +22,7 @@ export function createField(width = 10, height = 10, bombs = 10) {
     arr.forEach((el) => {
       el.forEach((item) => {
         const btn = document.createElement('button');
-        btn.classList.add(`${el}`, 'square');
+        btn.classList.add('square');
 
         const field = document.getElementById('field');
         field.append(btn);
