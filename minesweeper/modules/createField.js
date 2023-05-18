@@ -24,6 +24,10 @@ export function createField(width = 10, height = 10, bombs = 10) {
         const btn = document.createElement('button');
         btn.classList.add('square');
 
+        if (item == 1) {
+          btn.classList.add('bomb');
+        }
+
         const field = document.getElementById('field');
         field.append(btn);
       });
@@ -31,11 +35,9 @@ export function createField(width = 10, height = 10, bombs = 10) {
   }
 
   let newMatrix = createMatrix();
-  addButtons(newMatrix);
 
   function createBombs(bombs, matrix) {
-    let bombsCount = bombs;
-    while (bombsCount) {
+    while (bombs) {
       let height = matrix.length;
       let width = matrix[0].length;
 
@@ -46,11 +48,13 @@ export function createField(width = 10, height = 10, bombs = 10) {
 
       if (bombCell == 0) {
         matrix[y][x] = 1;
-        bombsCount -= 1;
+        bombs -= 1;
       }
     }
     console.log(matrix);
+    return matrix;
   }
 
-  createBombs(bombs, newMatrix);
+  let matrixWithBombs = createBombs(bombs, newMatrix);
+  addButtons(matrixWithBombs);
 }
