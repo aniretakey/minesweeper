@@ -3,6 +3,11 @@ export function getColors() {
   field.addEventListener('click', (event) => {
     let btn = event.target.closest('button');
     console.log(btn.classList);
+
+    if (btn.classList.contains('flag')) {
+      return;
+    }
+
     if (btn.classList.contains('bomb')) {
       btn.classList.add('open');
       btn.innerHTML = '<img src="./assets/icons/bomb4.png">';
