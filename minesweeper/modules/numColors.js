@@ -30,7 +30,7 @@ export function getColors() {
         }
 
         if (btn.classList[1] == 4) {
-          btn.classList.add('darkblue');
+          btn.classList.add('dark-blue');
         }
 
         if (btn.classList[1] == 5) {
