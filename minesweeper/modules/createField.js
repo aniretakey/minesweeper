@@ -25,7 +25,6 @@ export function createField(width = 10, height = 10, bombs = 10) {
         btn.classList.add('square');
 
         let bombCount = getNearBombs(arr, i, j);
-        console.log(bombCount);
         btn.classList.add(bombCount);
 
         if (arr[i][j] == 1) {

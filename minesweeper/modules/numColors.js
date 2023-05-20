@@ -33,7 +33,6 @@ export function getColors() {
         console.log('BOOOM! YOU LOOSE!');
       } else {
         btn.classList.add('open');
-        console.log(btn.classList[1]);
         cells.play();
 
         if (btn.classList[1] == 0) {
