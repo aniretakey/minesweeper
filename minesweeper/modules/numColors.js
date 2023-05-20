@@ -51,4 +51,19 @@ export function getColors() {
       }
     }
   });
+
+  field.addEventListener('contextmenu', (event) => {
+    let btn = event.target.closest('button');
+    event.preventDefault();
+
+    if (btn) {
+      if (!btn.classList.contains('flag')) {
+        btn.classList.add('flag');
+        btn.innerHTML = '<img src="./assets/icons/redflag.png">';
+      } else {
+        btn.classList.remove('flag');
+        btn.innerHTML = '';
+      }
+    }
+  });
 }
