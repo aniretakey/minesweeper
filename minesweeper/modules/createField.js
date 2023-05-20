@@ -19,19 +19,23 @@ export function createField(width = 10, height = 10, bombs = 10) {
   }
 
   function addButtons(arr) {
-    arr.forEach((el) => {
-      el.forEach((item) => {
+    for (let i = 0; i < arr.length; i += 1) {
+      for (let j = 0; j <= arr[i].length - 1; j += 1) {
         const btn = document.createElement('button');
         btn.classList.add('square');
 
-        if (item == 1) {
+        let bombCount = getNearBombs(arr, i, j);
+        console.log(bombCount);
+        btn.classList.add(bombCount);
+
+        if (arr[i][j] == 1) {
           btn.classList.add('bomb');
         }
 
         const field = document.getElementById('field');
         field.append(btn);
-      });
-    });
+      }
+    }
   }
 
   let newMatrix = createMatrix();
@@ -51,10 +55,22 @@ export function createField(width = 10, height = 10, bombs = 10) {
         bombs -= 1;
       }
     }
-    console.log(matrix);
     return matrix;
   }
 
   let matrixWithBombs = createBombs(bombs, newMatrix);
+  console.log(matrixWithBombs);
   addButtons(matrixWithBombs);
+}
+
+function getNearBombs(matrix, x, y) {
+  let i = 0;
+  for (let axisX = -1; axisX <= 1; axisX++) {
+    for (let axisY = -1; axisY <= 1; axisY++) {
+      if (matrix[axisX + x] && matrix[axisX + x][axisY + y]) {
+        i += 1;
+      }
+    }
+  }
+  return i;
 }
