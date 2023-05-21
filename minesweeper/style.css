@@ -115,6 +115,10 @@ body {
   box-shadow: none;
 }
 
+.timer {
+  min-width: 50px;
+}
+
 .open {
   box-shadow: none;
   background-color: var(--orange-color);

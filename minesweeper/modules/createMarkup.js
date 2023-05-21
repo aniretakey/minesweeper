@@ -29,7 +29,7 @@ export function createMarkup() {
 
   const menuItem5 = document.createElement('button');
   menuItem5.classList = 'menu_item timer';
-  menuItem5.innerHTML = 'Time';
+  menuItem5.innerHTML = '0';
 
   const menuItem6 = document.createElement('button');
   menuItem6.classList = 'menu_item moves';
