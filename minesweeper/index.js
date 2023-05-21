@@ -9,9 +9,9 @@ createMarkup();
 
 export function newGame() {
   createField();
+  openCells();
   changeTheme();
   countTime();
-  openCells();
   restart();
 }
 

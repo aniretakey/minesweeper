@@ -1,8 +1,13 @@
+import { createBombs } from './createBombs.js';
 import { addFlag } from './addFlag.js';
 import { getNumsColors } from './colorNums.js';
-import { createBombs } from './createBombs.js';
+import { gameOver } from './gameover.js';
+import { win } from './win.js';
 
 export function openCells(width = 10) {
+  let bombsArr = createBombs();
+  console.log(bombsArr);
+
   addFlag();
 
   let field = document.getElementById('field');
@@ -18,9 +23,6 @@ export function openCells(width = 10) {
   const bomb = new Audio();
   bomb.src = '/assets/audio/explosion.wav';
   bomb.volume = '0.05';
-
-  let bombsArr = createBombs();
-  console.log(bombsArr);
 
   field.addEventListener('click', (event) => {
     let btn = event.target.closest('button');
@@ -76,7 +78,7 @@ export function openCells(width = 10) {
         if (bombCell(row, column)) {
           cell.innerHTML = '<img src="./assets/icons/bomb4.png">';
           bomb.play();
-          alert('You loose!');
+          gameOver();
           return;
         }
 
@@ -86,7 +88,7 @@ export function openCells(width = 10) {
         console.log(cellsCount);
 
         if (cellsCount <= bombsArr.length) {
-          alert('You win!');
+          win();
         }
 
         let nearBombs = getNearBombs(row, column);
