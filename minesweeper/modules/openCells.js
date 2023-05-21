@@ -4,7 +4,10 @@ import { getNumsColors } from './colorNums.js';
 import { gameOver } from './gameover.js';
 import { win } from './win.js';
 
+export let clicksCount = 0;
+
 export function openCells(width = 10) {
+  clicksCount = 0;
   let bombsArr = createBombs();
   console.log(bombsArr);
 
@@ -15,7 +18,6 @@ export function openCells(width = 10) {
   const cells = [...field.children];
 
   let cellsCount = cells.length;
-  console.log(cellsCount);
 
   const cellsSound = new Audio();
   cellsSound.src = '/assets/audio/cells.mp3';
@@ -28,6 +30,8 @@ export function openCells(width = 10) {
     let btn = event.target.closest('button');
 
     if (btn) {
+      clicksCount += 1;
+
       let index = cells.indexOf(event.target);
       const column = index % width;
       const row = Math.floor((index - column) / width);
@@ -85,7 +89,6 @@ export function openCells(width = 10) {
         cell.classList.add('open');
         cellsSound.play();
         cellsCount -= 1;
-        console.log(cellsCount);
 
         if (cellsCount <= bombsArr.length) {
           win();
