@@ -33,6 +33,7 @@ export function getColors() {
         console.log('BOOOM! YOU LOOSE!');
       } else {
         btn.classList.add('open');
+        btn.disabled = true;
         cells.play();
 
         if (btn.classList[1] == 0) {
@@ -78,16 +79,19 @@ export function getColors() {
 
   field.addEventListener('contextmenu', (event) => {
     let btn = event.target.closest('button');
-    flag.play();
+
     event.preventDefault();
 
-    if (btn) {
-      if (!btn.classList.contains('flag')) {
-        btn.classList.add('flag');
-        btn.innerHTML = '<img src="./assets/icons/redflag.png">';
-      } else {
-        btn.classList.remove('flag');
-        btn.innerHTML = '';
+    if (!btn.classList.contains('open')) {
+      if (btn) {
+        if (!btn.classList.contains('flag')) {
+          flag.play();
+          btn.classList.add('flag');
+          btn.innerHTML = '<img src="./assets/icons/redflag.png">';
+        } else {
+          btn.classList.remove('flag');
+          btn.innerHTML = '';
+        }
       }
     }
   });
