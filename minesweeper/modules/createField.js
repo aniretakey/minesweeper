@@ -1,4 +1,6 @@
-import { getRandomNumbers } from './getRandomNumbers.js';
+// import { createBombs } from './createBombs.js';
+
+// import { getRandomNumbers } from './getRandomNumbers.js';
 
 export let field = [];
 export let matrix = [];
@@ -24,12 +26,12 @@ export function createField(width = 10, height = 10, bombs = 10) {
         const btn = document.createElement('button');
         btn.classList.add('square');
 
-        let bombCount = getNearBombs(arr, i, j);
-        btn.classList.add(bombCount);
+        // let bombCount = getNearBombs(arr, i, j);
+        // btn.classList.add(bombCount);
 
-        if (arr[i][j] == 1) {
-          btn.classList.add('bomb');
-        }
+        // if (arr[i][j] == 1) {
+        //   btn.classList.add('bomb');
+        // }
 
         const field = document.getElementById('field');
         field.append(btn);
@@ -39,37 +41,39 @@ export function createField(width = 10, height = 10, bombs = 10) {
 
   let newMatrix = createMatrix();
 
-  function createBombs(bombs, matrix) {
-    while (bombs) {
-      let height = matrix.length;
-      let width = matrix[0].length;
+  // function createBombs(bombs, matrix) {
+  //   while (bombs) {
+  //     let height = matrix.length;
+  //     let width = matrix[0].length;
 
-      const y = getRandomNumbers(0, height - 1);
-      const x = getRandomNumbers(0, width - 1);
+  //     const y = getRandomNumbers(0, height - 1);
+  //     const x = getRandomNumbers(0, width - 1);
 
-      const bombCell = matrix[y][x];
+  //     const bombCell = matrix[y][x];
 
-      if (bombCell == 0) {
-        matrix[y][x] = 1;
-        bombs -= 1;
-      }
-    }
-    return matrix;
-  }
+  //     if (bombCell == 0) {
+  //       matrix[y][x] = 1;
+  //       bombs -= 1;
+  //     }
+  //   }
+  //   return matrix;
+  // }
 
-  let matrixWithBombs = createBombs(bombs, newMatrix);
-  console.log(matrixWithBombs);
-  addButtons(matrixWithBombs);
+  // let matrixWithBombs = createBombs(bombs, newMatrix);
+  //   console.log(matrixWithBombs);
+  //   addButtons(matrixWithBombs);
+  addButtons(newMatrix);
+  // console.log(newMatrix);
 }
 
-function getNearBombs(matrix, x, y) {
-  let i = 0;
-  for (let axisX = -1; axisX <= 1; axisX++) {
-    for (let axisY = -1; axisY <= 1; axisY++) {
-      if (matrix[axisX + x] && matrix[axisX + x][axisY + y]) {
-        i += 1;
-      }
-    }
-  }
-  return i;
-}
+// function getNearBombs(matrix, x, y) {
+//   let i = 0;
+//   for (let axisX = -1; axisX <= 1; axisX++) {
+//     for (let axisY = -1; axisY <= 1; axisY++) {
+//       if (matrix[axisX + x] && matrix[axisX + x][axisY + y]) {
+//         i += 1;
+//       }
+//     }
+//   }
+//   return i;
+// }
