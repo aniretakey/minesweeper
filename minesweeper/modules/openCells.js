@@ -3,8 +3,14 @@ import { getNumsColors } from './colorNums.js';
 import { createBombs } from './createBombs.js';
 
 export function openCells(width = 10) {
+  addFlag();
+
   let field = document.getElementById('field');
+
   const cells = [...field.children];
+
+  let cellsCount = cells.length;
+  console.log(cellsCount);
 
   const cellsSound = new Audio();
   cellsSound.src = '/assets/audio/cells.mp3';
@@ -70,11 +76,18 @@ export function openCells(width = 10) {
         if (bombCell(row, column)) {
           cell.innerHTML = '<img src="./assets/icons/bomb4.png">';
           bomb.play();
+          alert('You loose!');
           return;
         }
 
         cell.classList.add('open');
         cellsSound.play();
+        cellsCount -= 1;
+        console.log(cellsCount);
+
+        if (cellsCount <= bombsArr.length) {
+          alert('You win!');
+        }
 
         let nearBombs = getNearBombs(row, column);
 
@@ -94,6 +107,4 @@ export function openCells(width = 10) {
       openNearCells(row, column);
     }
   });
-
-  addFlag();
 }
