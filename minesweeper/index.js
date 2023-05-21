@@ -5,9 +5,8 @@ import { restart } from './modules/restart.js';
 import { openCells } from './modules/openCells.js';
 import { countTime } from './modules/timer.js';
 
-createMarkup();
-
 export function newGame() {
+  createMarkup();
   createField();
   openCells();
   changeTheme();
