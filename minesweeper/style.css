@@ -11,6 +11,8 @@
   src: url('/assets/fonts/DS-DIGII.TTF');
 }
 
+/* ********************** Main markup ********************** */
+
 body {
   display: flex;
   justify-content: center;
@@ -19,6 +21,7 @@ body {
   font-family: 'DS-Digital', arial;
   color: var(--dark-color);
   transition: all ease-out 0.5s;
+  overflow-x: hidden;
 }
 
 .dark {
@@ -45,6 +48,8 @@ body {
   color: var(--orange-color);
   text-shadow: 4px 4px 1px rgba(212, 87, 105, 1);
 }
+
+/* ********************** Menu ********************** */
 
 .menu {
   max-width: 450px;
@@ -82,6 +87,12 @@ body {
   color: var(--dark-color);
 }
 
+.timer {
+  min-width: 50px;
+}
+
+/* ********************** Field ********************** */
+
 .field {
   min-height: 60vh;
   min-width: 60vh;
@@ -115,10 +126,6 @@ body {
   box-shadow: none;
 }
 
-.timer {
-  min-width: 50px;
-}
-
 .open {
   box-shadow: none;
   background-color: var(--orange-color);
@@ -133,6 +140,8 @@ button {
   font-size: 1.5em;
   font-weight: 600;
 }
+
+/* ********************** Num colors ********************** */
 
 .blue {
   color: blue;
@@ -164,4 +173,58 @@ button {
 
 .grey {
   color: grey;
+}
+
+/* **********************  Modal ********************** */
+.modal__background {
+  display: none;
+  background: rgba(0, 0, 0, 0.81);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.modal__window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  width: 48%;
+  height: 56%;
+  top: calc(50% - 28%);
+  left: calc(50% - 25%);
+
+  border-radius: 15px;
+  background-color: #688aa5;
+
+  cursor: auto;
+  padding: 40px 20px;
+  /* position: relative; */
+  font-size: 3rem;
+  color: white;
+}
+
+.modal__close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-regular);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.modal__cross img {
+  width: 100%;
+  height: 100%;
+}
+
+.modal__open {
+  display: block;
 }
