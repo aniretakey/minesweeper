@@ -37,7 +37,6 @@ export function createModal(win) {
   const wrapper = document.querySelector('.modal__background');
   const btnClose = document.querySelector('.modal__close');
 
-  console.log(wrapper);
   wrapper.classList.add('modal__open');
 
   btnClose.addEventListener('click', function () {
