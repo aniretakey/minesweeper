@@ -1,4 +1,5 @@
 import { newGame } from '../index.js';
+import { openCells } from './openCells.js';
 import { interval } from './timer.js';
 
 export function restart() {
@@ -8,6 +9,8 @@ export function restart() {
   restartButton.addEventListener('click', (event) => {
     body.innerHTML = '';
     clearInterval(interval);
+
     newGame();
+    // openCells();
   });
 }

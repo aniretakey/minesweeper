@@ -7,13 +7,21 @@ import { win } from './win.js';
 export let clicksCount = 0;
 
 export function openCells(width = 10) {
+  let field = document.getElementById('field');
   clicksCount = 0;
-  let bombsArr = createBombs();
-  console.log(bombsArr);
+  let bombsArr;
+
+  field.addEventListener(
+    'click',
+    () => {
+      bombsArr = createBombs();
+      console.log(bombsArr);
+    },
+    { once: true }
+  );
 
   addFlag();
 
-  let field = document.getElementById('field');
   let menuClicks = document.querySelector('.moves');
 
   const cells = [...field.children];
