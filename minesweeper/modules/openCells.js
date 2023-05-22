@@ -14,6 +14,7 @@ export function openCells(width = 10) {
   addFlag();
 
   let field = document.getElementById('field');
+  let menuClicks = document.querySelector('.moves');
 
   const cells = [...field.children];
 
@@ -31,6 +32,7 @@ export function openCells(width = 10) {
 
     if (btn) {
       clicksCount += 1;
+      menuClicks.innerHTML = `Moves: ${clicksCount}`;
 
       let index = cells.indexOf(event.target);
       const column = index % width;
@@ -76,6 +78,7 @@ export function openCells(width = 10) {
         let cell = cells[index];
 
         if (cell.disabled === true) return;
+        if (cells[index].classList.contains('flag')) return;
 
         cell.disabled = 'true';
 
