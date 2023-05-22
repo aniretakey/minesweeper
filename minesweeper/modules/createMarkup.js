@@ -25,21 +25,33 @@ export function createMarkup() {
 
   const menuItem3 = document.createElement('button');
   menuItem3.classList = 'menu_item restart';
-  menuItem3.innerHTML = '↺';
+  menuItem3.innerHTML = 'Restart';
 
   const menuItem5 = document.createElement('button');
   menuItem5.classList = 'menu_item timer';
-  menuItem5.innerHTML = '0';
+  menuItem5.innerHTML = 'Time: 0';
 
   const menuItem6 = document.createElement('button');
   menuItem6.classList = 'menu_item moves';
-  menuItem6.innerHTML = 'Moves';
+  menuItem6.innerHTML = 'Moves: 0';
+
+  const menuItem7 = document.createElement('button');
+  menuItem7.classList = 'menu_item flags';
+  menuItem7.innerHTML = 'Flags: 0';
 
   const field = document.createElement('div');
   field.classList.add('field');
   field.id = 'field';
 
-  menu.append(menuItem1, menuItem2, menuItem4, menuItem5, menuItem6, menuItem3);
+  menu.append(
+    menuItem1,
+    menuItem2,
+    menuItem4,
+    menuItem3,
+    menuItem5,
+    menuItem7,
+    menuItem6
+  );
   wrapper.append(title, menu, field);
   body.append(wrapper);
 }
