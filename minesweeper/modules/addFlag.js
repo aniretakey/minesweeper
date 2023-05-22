@@ -1,7 +1,7 @@
 export function addFlag(bombs = 10) {
   const field = document.getElementById('field');
   let menuFlags = document.querySelector('.flags');
-  flagsCount = bombs;
+  let flagsCount = bombs;
 
   const flag = new Audio();
   flag.src = './assets/audio/flag.mp3';
