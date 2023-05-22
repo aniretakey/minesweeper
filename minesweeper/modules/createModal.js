@@ -1,5 +1,6 @@
 import { clicksCount } from './openCells.js';
 import { newGame } from '../index.js';
+import { seconds, interval } from './timer.js';
 
 function createModalMarkup(win) {
   const background = document.createElement('div');
@@ -10,7 +11,7 @@ function createModalMarkup(win) {
   window.classList.add('modal__window');
 
   if (win == true) {
-    window.innerHTML = `Hooray! You win! 🙂 You found all mines in ## seconds and ${clicksCount} moves!`;
+    window.innerHTML = `Hooray! You win! 🙂 You found all mines in  ${seconds} seconds and ${clicksCount} moves!`;
   } else {
     window.innerHTML = `Game over. Try again 🙁`;
   }
@@ -42,6 +43,7 @@ export function createModal(win) {
   btnClose.addEventListener('click', function () {
     wrapper.classList.remove('modal__open');
     body.innerHTML = '';
+    clearInterval(interval);
     newGame();
   });
 
@@ -49,6 +51,7 @@ export function createModal(win) {
     if (event.target === wrapper) {
       wrapper.classList.remove('modal__open');
       body.innerHTML = '';
+      clearInterval(interval);
       newGame();
     }
   });

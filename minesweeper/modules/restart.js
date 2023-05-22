@@ -1,4 +1,5 @@
 import { newGame } from '../index.js';
+import { interval } from './timer.js';
 
 export function restart() {
   let restartButton = document.querySelector('.restart');
@@ -6,6 +7,7 @@ export function restart() {
 
   restartButton.addEventListener('click', (event) => {
     body.innerHTML = '';
+    clearInterval(interval);
     newGame();
   });
 }
