@@ -10,7 +10,7 @@ export function countTime() {
     () => {
       function sec() {
         seconds++;
-        timer.innerHTML = `${seconds}`;
+        timer.innerHTML = `Time: ${seconds}`;
       }
 
       seconds = 0;

@@ -55,9 +55,10 @@ body {
   max-width: 450px;
   height: 10%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-size: 20px;
+  flex-wrap: wrap;
 }
 
 .menu_item {
@@ -88,7 +89,7 @@ body {
 }
 
 .timer {
-  min-width: 50px;
+  min-width: 110px;
 }
 
 /* ********************** Field ********************** */
