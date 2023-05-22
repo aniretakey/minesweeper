@@ -1,7 +1,7 @@
 import { createBombs } from './createBombs.js';
 import { addFlag } from './addFlag.js';
 import { getNumsColors } from './colorNums.js';
-import { gameOver } from './gameover.js';
+import { gameOver } from './gameOver.js';
 import { win } from './win.js';
 
 export let clicksCount = 0;
