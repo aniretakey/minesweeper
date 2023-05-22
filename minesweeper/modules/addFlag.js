@@ -1,5 +1,7 @@
-export function addFlag() {
+export function addFlag(bombs = 10) {
   const field = document.getElementById('field');
+  let menuFlags = document.querySelector('.flags');
+  flagsCount = bombs;
 
   const flag = new Audio();
   flag.src = './assets/audio/flag.mp3';
@@ -13,12 +15,15 @@ export function addFlag() {
     if (btn) {
       if (!btn.classList.contains('open')) {
         if (btn.classList.contains('flag')) {
-          console.log('remove flag');
+          flagsCount += 1;
+          menuFlags.innerHTML = `Flags: ${flagsCount}`;
           btn.innerHTML = '';
+          flag.play();
           btn.classList.remove('flag');
           return;
         } else {
-          console.log('add flag');
+          flagsCount -= 1;
+          menuFlags.innerHTML = `Flags: ${flagsCount}`;
           btn.innerHTML = '<img src="./assets/icons/redflag.png">';
           flag.play();
           btn.classList.add('flag');
