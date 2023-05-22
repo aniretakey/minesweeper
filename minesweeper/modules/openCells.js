@@ -20,10 +20,10 @@ export function openCells(width = 10) {
   let cellsCount = cells.length;
 
   const cellsSound = new Audio();
-  cellsSound.src = '/assets/audio/cells.mp3';
+  cellsSound.src = './assets/audio/cells.mp3';
 
   const bomb = new Audio();
-  bomb.src = '/assets/audio/explosion.wav';
+  bomb.src = './assets/audio/explosion.wav';
   bomb.volume = '0.05';
 
   field.addEventListener('click', (event) => {

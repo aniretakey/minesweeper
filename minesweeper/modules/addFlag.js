@@ -2,7 +2,7 @@ export function addFlag() {
   const field = document.getElementById('field');
 
   const flag = new Audio();
-  flag.src = '/assets/audio/flag.mp3';
+  flag.src = './assets/audio/flag.mp3';
   flag.volume = '0.08';
 
   field.addEventListener('contextmenu', (event) => {
