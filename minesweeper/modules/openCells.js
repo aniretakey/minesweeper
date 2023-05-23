@@ -11,11 +11,18 @@ export function openCells(width = 10) {
   clicksCount = 0;
   let bombsArr;
 
+  const cells = [...field.children];
+  let cellsCount = cells.length;
+
   field.addEventListener(
     'click',
-    () => {
+    (event) => {
+      let index = cells.indexOf(event.target);
       bombsArr = createBombs();
-      console.log(bombsArr);
+
+      if (bombsArr.includes(index)) {
+        bombsArr = createBombs();
+      }
     },
     { once: true }
   );
@@ -23,10 +30,6 @@ export function openCells(width = 10) {
   addFlag();
 
   let menuClicks = document.querySelector('.moves');
-
-  const cells = [...field.children];
-
-  let cellsCount = cells.length;
 
   const cellsSound = new Audio();
   cellsSound.src = './assets/audio/cells.mp3';
