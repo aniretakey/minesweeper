@@ -17,16 +17,18 @@ body {
   display: flex;
   justify-content: center;
   background-color: var(--light-color);
-  background: url(./assets/img/light-sky.jpg) no-repeat center;
+  background: url(./assets/img/light-sky.jpg);
+  background-size: 100%;
+
   font-family: 'DS-Digital', arial;
   color: var(--dark-color);
   transition: all ease-out 0.5s;
-  overflow-x: hidden;
 }
 
 .dark {
   background-color: var(--dark-color);
-  background: url(./assets/img/starry-sky.jpg) no-repeat center;
+  background: url(./assets/img/starry-sky.jpg);
+  background-size: 100%;
 }
 
 .wrapper {
