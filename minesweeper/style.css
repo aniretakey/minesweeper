@@ -263,3 +263,15 @@ td {
 tr:hover {
   background-color: var(--orange-color);
 }
+
+/* ********************** Bomb / Field size input ********************** */
+input {
+  background-color: var(--orange-color);
+  border: none;
+  border-radius: 5px;
+  max-width: 40px;
+  font-family: 'DS-Digital';
+  font-size: 1rem;
+  color: var(--dark-color);
+  text-align: right;
+}

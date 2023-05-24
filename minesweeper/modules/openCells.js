@@ -23,10 +23,15 @@ export function openCells(width = 10) {
     'click',
     (event) => {
       let index = cells.indexOf(event.target);
-      bombsArr = createBombs();
+
+      let bombsCount = Number(localStorage.bombsCount);
+
+      bombsCount = Number(document.getElementById('bombsCount').value);
+      localStorage.bombsCount = bombsCount;
+      bombsArr = createBombs(bombsCount);
 
       while (bombsArr.includes(index)) {
-        bombsArr = createBombs();
+        bombsArr = createBombs(bombsCount);
       }
     },
     { once: true }
