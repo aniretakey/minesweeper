@@ -13,8 +13,23 @@ export function setNewResult(clicksCount, seconds) {
   newResult.moves = clicksCount;
   newResult.time = seconds;
 
+  let zeroResults = [
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' },
+    { data: '', moves: '', time: '' }
+  ];
+
   if (localStorage.results) {
     results = JSON.parse(localStorage.results);
+  } else {
+    results = zeroResults;
   }
 
   if (results.length >= 10) {

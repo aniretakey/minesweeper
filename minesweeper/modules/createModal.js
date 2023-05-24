@@ -30,63 +30,63 @@ function createModalMarkup(type) {
     		</tr>
     		<tr>
     			<td>1</td>
-    			<td>${results[0].data}</td>
-    			<td>${results[0].moves}</td>
-    			<td>${results[0].time}</td>
+    			<td>${results[9].data}</td>
+    			<td>${results[9].moves}</td>
+    			<td>${results[9].time}</td>
     		</tr>
     		<tr>
     			<td>2</td>
-    			<td>${results[1].data}</td>
-    			<td>${results[1].moves}</td>
-    			<td>${results[1].time}</td>
-    		</tr>
-    		<tr>
-    			<td>3</td>
-    			<td>${results[2].data}</td>
-    			<td>${results[2].moves}</td>
-    			<td>${results[2].time}</td>
-    		</tr>
-    		<tr>
-    			<td>4</td>
-    			<td>${results[3].data}</td>
-    			<td>${results[3].moves}</td>
-    			<td>${results[3].time}</td>
-    		</tr>
-    		<tr>
-    			<td>5</td>
-    			<td>${results[4].data}</td>
-    			<td>${results[4].moves}</td>
-    			<td>${results[4].time}</td>
-    		</tr>
-    		<tr>
-    			<td>6</td>
-    			<td>${results[5].data}</td>
-    			<td>${results[5].moves}</td>
-    			<td>${results[5].time}</td>
-    		</tr>
-    		<tr>
-    			<td>7</td>
-    			<td>${results[6].data}</td>
-    			<td>${results[6].moves}</td>
-    			<td>${results[6].time}</td>
-    		</tr>
-    		<tr>
-    			<td>8</td>
-    			<td>${results[7].data}</td>
-    			<td>${results[7].moves}</td>
-    			<td>${results[7].time}</td>
-    		</tr>
-    		<tr>
-    			<td>9</td>
     			<td>${results[8].data}</td>
     			<td>${results[8].moves}</td>
     			<td>${results[8].time}</td>
     		</tr>
     		<tr>
+    			<td>3</td>
+    			<td>${results[7].data}</td>
+    			<td>${results[7].moves}</td>
+    			<td>${results[7].time}</td>
+    		</tr>
+    		<tr>
+    			<td>4</td>
+    			<td>${results[6].data}</td>
+    			<td>${results[6].moves}</td>
+    			<td>${results[6].time}</td>
+    		</tr>
+    		<tr>
+    			<td>5</td>
+    			<td>${results[5].data}</td>
+    			<td>${results[5].moves}</td>
+    			<td>${results[5].time}</td>
+    		</tr>
+    		<tr>
+    			<td>6</td>
+    			<td>${results[4].data}</td>
+    			<td>${results[4].moves}</td>
+    			<td>${results[4].time}</td>
+    		</tr>
+    		<tr>
+    			<td>7</td>
+    			<td>${results[3].data}</td>
+    			<td>${results[3].moves}</td>
+    			<td>${results[3].time}</td>
+    		</tr>
+    		<tr>
+    			<td>8</td>
+    			<td>${results[2].data}</td>
+    			<td>${results[2].moves}</td>
+    			<td>${results[2].time}</td>
+    		</tr>
+    		<tr>
+    			<td>9</td>
+    			<td>${results[1].data}</td>
+    			<td>${results[1].moves}</td>
+    			<td>${results[1].time}</td>
+    		</tr>
+    		<tr>
     			<td>10</td>
-    			<td>${results[9].data}</td>
-    			<td>${results[9].moves}</td>
-    			<td>${results[9].time}</td>
+    			<td>${results[0].data}</td>
+    			<td>${results[0].moves}</td>
+    			<td>${results[0].time}</td>
     		</tr>
     	</tbody>
     </table>`;
