@@ -11,9 +11,11 @@ function createModalMarkup(win) {
   window.classList.add('modal__window');
 
   if (win == true) {
-    window.innerHTML = `Hooray! You win! 🙂 You found all mines in  ${seconds} seconds and ${clicksCount} moves!`;
+    window.innerHTML = `Hooray! You win!🙂
+    You found all mines in  ${seconds} seconds and ${clicksCount} moves!`;
   } else {
-    window.innerHTML = `Game over. Try again 🙁`;
+    window.innerHTML = `Game over.
+    Try again 🙁`;
   }
 
   const close = document.createElement('div');

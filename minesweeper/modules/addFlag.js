@@ -18,14 +18,14 @@ export function addFlag(bombs = 10) {
           flagsCount += 1;
           menuFlags.innerHTML = `Flags: ${flagsCount}`;
           btn.innerHTML = '';
-          flag.play();
+          if (localStorage.soundOn == 'true') flag.play();
           btn.classList.remove('flag');
           return;
         } else {
           flagsCount -= 1;
           menuFlags.innerHTML = `Flags: ${flagsCount}`;
           btn.innerHTML = '<img src="./assets/icons/redflag.png">';
-          flag.play();
+          if (localStorage.soundOn == 'true') flag.play();
           btn.classList.add('flag');
           return;
         }

@@ -1,5 +1,4 @@
 import { newGame } from '../index.js';
-import { openCells } from './openCells.js';
 import { interval } from './timer.js';
 
 export function restart() {
@@ -11,6 +10,5 @@ export function restart() {
     clearInterval(interval);
 
     newGame();
-    // openCells();
   });
 }

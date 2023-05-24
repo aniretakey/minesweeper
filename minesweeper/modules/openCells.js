@@ -3,12 +3,14 @@ import { addFlag } from './addFlag.js';
 import { getNumsColors } from './colorNums.js';
 import { gameOver } from './gameOver.js';
 import { win } from './win.js';
+import { soundOn } from './sound.js';
 
 export let clicksCount = 0;
 
 export function openCells(width = 10) {
   let field = document.getElementById('field');
   clicksCount = 0;
+  soundOn();
   let bombsArr;
 
   const cells = [...field.children];
@@ -95,13 +97,17 @@ export function openCells(width = 10) {
 
         if (bombCell(row, column)) {
           cell.innerHTML = '<img src="./assets/icons/bomb4.png">';
-          bomb.play();
+          if (localStorage.soundOn == 'true') {
+            bomb.play();
+          }
           gameOver();
           return;
         }
 
         cell.classList.add('open');
-        cellsSound.play();
+        if (localStorage.soundOn == 'true') {
+          cellsSound.play();
+        }
         cellsCount -= 1;
 
         if (cellsCount <= bombsArr.length) {

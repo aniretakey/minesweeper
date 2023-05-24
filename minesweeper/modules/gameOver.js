@@ -6,5 +6,5 @@ export function gameOver() {
   gameover.volume = '0.1';
 
   createModal(false);
-  gameover.play();
+  if (localStorage.soundOn == 'true') gameover.play();
 }

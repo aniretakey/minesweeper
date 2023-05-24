@@ -19,6 +19,7 @@ body {
   background-color: var(--light-color);
   background: url(./assets/img/light-sky.jpg);
   background-size: 100%;
+  background-size: cover;
 
   font-family: 'DS-Digital', arial;
   color: var(--dark-color);
@@ -127,6 +128,14 @@ body {
 
 img {
   max-width: 3vh;
+}
+
+.sound {
+  max-height: 31px;
+  width: 31px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {

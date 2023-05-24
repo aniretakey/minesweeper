@@ -39,6 +39,15 @@ export function createMarkup() {
   menuItem7.classList = 'menu_item flags';
   menuItem7.innerHTML = 'Flags: 0';
 
+  const menuItem8 = document.createElement('button');
+  menuItem8.classList = 'menu_item sound sound_on';
+  console.log(localStorage.soundOn);
+  if ((localStorage.soundOn = 'true')) {
+    menuItem8.innerHTML = '<img src="./assets/icons/sound-on.png">';
+  } else {
+    menuItem8.innerHTML = '<img src="./assets/icons/sound-off.png">';
+  }
+
   const field = document.createElement('div');
   field.classList.add('field');
   field.id = 'field';
@@ -48,6 +57,7 @@ export function createMarkup() {
     menuItem2,
     menuItem4,
     menuItem3,
+    menuItem8,
     menuItem5,
     menuItem7,
     menuItem6

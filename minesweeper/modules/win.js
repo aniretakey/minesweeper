@@ -6,5 +6,5 @@ export function win() {
   win.volume = '0.1';
 
   createModal(true);
-  win.play();
+  if (localStorage.soundOn == 'true') win.play();
 }
