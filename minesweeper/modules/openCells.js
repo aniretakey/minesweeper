@@ -4,9 +4,9 @@ import { getNumsColors } from './colorNums.js';
 import { gameOver } from './gameOver.js';
 import { win } from './win.js';
 import { soundOn } from './sound.js';
-import { setNewResult } from './results.js';
 import { seconds } from './timer.js';
 import { createModal } from './createModal.js';
+import { setNewResult } from './results.js';
 
 export let clicksCount = 0;
 

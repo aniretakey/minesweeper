@@ -1,6 +1,6 @@
 export let results = [];
 
-export function setNewResult(clicksCount, seconds) {
+export function setNewResult(clicksCount = 0, seconds = 0) {
   const newResult = {
     data: '',
     moves: '',
@@ -13,6 +13,19 @@ export function setNewResult(clicksCount, seconds) {
   newResult.moves = clicksCount;
   newResult.time = seconds;
 
+  let results = JSON.parse(localStorage.results);
+
+  if (results.length >= 10) {
+    results = results.slice(1);
+  }
+
+  results = [...results, newResult];
+  localStorage.results = JSON.stringify(results);
+  return newResult;
+}
+
+export function setFirstResults() {
+  let results = [];
   let zeroResults = [
     { data: '', moves: '', time: '' },
     { data: '', moves: '', time: '' },
@@ -26,17 +39,7 @@ export function setNewResult(clicksCount, seconds) {
     { data: '', moves: '', time: '' }
   ];
 
-  if (localStorage.results) {
-    results = JSON.parse(localStorage.results);
-  } else {
-    results = zeroResults;
+  if (!localStorage.results) {
+    localStorage.results = JSON.stringify(zeroResults);
   }
-
-  if (results.length >= 10) {
-    results = results.slice(1);
-  }
-
-  results = [...results, newResult];
-  localStorage.results = JSON.stringify(results);
-  return newResult;
 }

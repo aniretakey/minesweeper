@@ -4,6 +4,7 @@ import { changeTheme } from './modules/changeTheme.js';
 import { restart } from './modules/restart.js';
 import { openCells } from './modules/openCells.js';
 import { countTime } from './modules/timer.js';
+import { setFirstResults } from './modules/results.js';
 
 export function newGame() {
   createMarkup();
@@ -14,4 +15,5 @@ export function newGame() {
   restart();
 }
 
+setFirstResults();
 newGame();
