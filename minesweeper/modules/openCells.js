@@ -25,7 +25,7 @@ export function openCells(width = 10) {
       let index = cells.indexOf(event.target);
       bombsArr = createBombs();
 
-      if (bombsArr.includes(index)) {
+      while (bombsArr.includes(index)) {
         bombsArr = createBombs();
       }
     },
