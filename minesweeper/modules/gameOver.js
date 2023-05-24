@@ -5,6 +5,6 @@ export function gameOver() {
   gameover.src = './assets/audio/gameover.mp3';
   gameover.volume = '0.1';
 
-  createModal(false);
+  createModal('loose');
   if (localStorage.soundOn == 'true') gameover.play();
 }

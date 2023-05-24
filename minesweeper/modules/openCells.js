@@ -4,6 +4,9 @@ import { getNumsColors } from './colorNums.js';
 import { gameOver } from './gameOver.js';
 import { win } from './win.js';
 import { soundOn } from './sound.js';
+import { setNewResult } from './results.js';
+import { seconds } from './timer.js';
+import { createModal } from './createModal.js';
 
 export let clicksCount = 0;
 
@@ -39,6 +42,11 @@ export function openCells(width = 10) {
   const bomb = new Audio();
   bomb.src = './assets/audio/explosion.wav';
   bomb.volume = '0.05';
+
+  let resultsBtn = document.querySelector('.score');
+  resultsBtn.addEventListener('click', () => {
+    createModal('results');
+  });
 
   field.addEventListener('click', (event) => {
     let btn = event.target.closest('button');
@@ -111,6 +119,7 @@ export function openCells(width = 10) {
         cellsCount -= 1;
 
         if (cellsCount <= bombsArr.length) {
+          let newResult = setNewResult(clicksCount, seconds);
           win();
         }
 

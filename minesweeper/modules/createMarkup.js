@@ -41,7 +41,6 @@ export function createMarkup() {
 
   const menuItem8 = document.createElement('button');
   menuItem8.classList = 'menu_item sound sound_on';
-  console.log(localStorage.soundOn);
   if ((localStorage.soundOn = 'true')) {
     menuItem8.innerHTML = '<img src="./assets/icons/sound-on.png">';
   } else {

@@ -1,5 +1,5 @@
 :root {
-  --dark-color: #455054;
+  --dark-color: #354251;
   --light-color: #d4cfc9;
   --blue-color: #41a2b3;
   --pink-color: #d45769;
@@ -191,6 +191,7 @@ button {
 
 .modal__window {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -206,7 +207,7 @@ button {
 
   cursor: auto;
   padding: 40px 20px;
-  font-size: 3rem;
+  font-size: 2rem;
   color: white;
 }
 
@@ -230,4 +231,35 @@ button {
 
 .modal__open {
   display: block;
+}
+
+/* ********************** Score table ********************** */
+.table {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  text-decoration: none;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+th {
+  background-color: var(--pink-color);
+  padding: 7px 7px;
+}
+
+td {
+  padding: 5px 3px;
+}
+
+th,
+td {
+  white-space: pre-wrap;
+  line-height: 13px;
+  vertical-align: middle;
+  border: 1px solid var(--dark-color);
+}
+
+tr:hover {
+  background-color: var(--orange-color);
 }

@@ -5,6 +5,6 @@ export function win() {
   win.src = './assets/audio/win.mp3';
   win.volume = '0.1';
 
-  createModal(true);
+  createModal('win');
   if (localStorage.soundOn == 'true') win.play();
 }
