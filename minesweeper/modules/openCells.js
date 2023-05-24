@@ -7,18 +7,29 @@ import { soundOn } from './sound.js';
 import { seconds } from './timer.js';
 import { createModal } from './createModal.js';
 import { setNewResult } from './results.js';
+import { newGame } from '../index.js';
+import { interval } from './timer.js';
 
 export let clicksCount = 0;
 
 export function openCells(width = 10) {
   let field = document.getElementById('field');
-  clicksCount = 0;
-  soundOn();
-  let bombsArr;
-
   const cells = [...field.children];
   let cellsCount = cells.length;
+  clicksCount = 0;
+  soundOn();
+  addFlag();
+  let bombsArr;
 
+  // Звуки нажатия на клетку и взрыва
+  const cellsSound = new Audio();
+  cellsSound.src = './assets/audio/cells.mp3';
+
+  const bomb = new Audio();
+  bomb.src = './assets/audio/explosion.wav';
+  bomb.volume = '0.05';
+
+  // Создание массива с бомбами после 1 клика
   field.addEventListener(
     'click',
     (event) => {
@@ -26,8 +37,9 @@ export function openCells(width = 10) {
 
       let bombsCount = Number(localStorage.bombsCount);
 
-      bombsCount = Number(document.getElementById('bombsCount').value);
-      localStorage.bombsCount = bombsCount;
+      localStorage.bombsCount = Number(
+        document.getElementById('bombsInput').value
+      );
       bombsArr = createBombs(bombsCount);
 
       while (bombsArr.includes(index)) {
@@ -37,17 +49,19 @@ export function openCells(width = 10) {
     { once: true }
   );
 
-  addFlag();
+  // Рестарт игры после ввода нового количества бомб
+  let bombsInput = document.getElementById('bombsInput');
+  bombsInput.addEventListener('focusout', () => {
+    localStorage.bombsCount = Number(
+      document.getElementById('bombsInput').value
+    );
+    const body = document.getElementsByTagName('body')[0];
+    body.innerHTML = '';
+    clearInterval(interval);
+    newGame();
+  });
 
-  let menuClicks = document.querySelector('.moves');
-
-  const cellsSound = new Audio();
-  cellsSound.src = './assets/audio/cells.mp3';
-
-  const bomb = new Audio();
-  bomb.src = './assets/audio/explosion.wav';
-  bomb.volume = '0.05';
-
+  // Вывод таблицы с результатами после клика
   let resultsBtn = document.querySelector('.score');
   resultsBtn.addEventListener('click', () => {
     createModal('results');
@@ -55,7 +69,7 @@ export function openCells(width = 10) {
 
   field.addEventListener('click', (event) => {
     let btn = event.target.closest('button');
-
+    let menuClicks = document.querySelector('.moves');
     if (btn) {
       clicksCount += 1;
       menuClicks.innerHTML = `Moves: ${clicksCount}`;
@@ -70,6 +84,7 @@ export function openCells(width = 10) {
         }
       }
 
+      // Получение числа бомб вокруг клетки
       function getNearBombs(row, column) {
         let counter = 0;
         {
@@ -97,6 +112,7 @@ export function openCells(width = 10) {
         }
       }
 
+      // Открытие ближайших пустых ячеек
       function openNearCells(row, column, width = 10) {
         if (!unavailableCell(row, column, width)) return;
 
