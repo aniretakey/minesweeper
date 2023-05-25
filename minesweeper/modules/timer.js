@@ -1,4 +1,4 @@
-export let seconds;
+export let seconds = 0;
 export let interval;
 
 export function countTime() {

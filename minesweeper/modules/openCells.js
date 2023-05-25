@@ -18,7 +18,6 @@ export function openCells(width = 10) {
   let cellsCount = cells.length;
   clicksCount = 0;
   soundOn();
-  addFlag();
   let bombsArr;
 
   // Звуки нажатия на клетку и взрыва
@@ -29,13 +28,25 @@ export function openCells(width = 10) {
   bomb.src = './assets/audio/explosion.wav';
   bomb.volume = '0.05';
 
+  // Добавляем количество бомб в localStorage
+
+  let bombsCount;
+
+  if (localStorage.bombsCount == undefined) {
+    localStorage.setItem('bombsCount', '10');
+    bombsCount = Number(localStorage.bombsCount);
+    document.getElementById('bombsInput').value = bombsCount;
+  } else {
+    bombsCount = Number(localStorage.bombsCount);
+  }
+
+  addFlag();
+
   // Создание массива с бомбами после 1 клика
   field.addEventListener(
     'click',
     (event) => {
       let index = cells.indexOf(event.target);
-
-      let bombsCount = Number(localStorage.bombsCount);
 
       localStorage.bombsCount = Number(
         document.getElementById('bombsInput').value

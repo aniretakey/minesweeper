@@ -17,7 +17,7 @@ export function createMarkup() {
 
   const menuItem2 = document.createElement('button');
   menuItem2.classList = 'menu_item difficult';
-  menuItem2.innerHTML = `Bombs: <input type="number" name="bombsCount" id="bombsInput" min="10" max="99" value="${localStorage.bombsCount}">`;
+  menuItem2.innerHTML = `Bombs: <input type="number" name="bombsCount" id="bombsInput" min="10" max="99" placeholder="10" value="${localStorage.bombsCount}">`;
 
   const menuItem4 = document.createElement('button');
   menuItem4.classList = 'menu_item theme';
